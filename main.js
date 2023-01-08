@@ -81,3 +81,63 @@ while(j<2)
 }
 
 // map and filter concepts are also there in JS
+// Conditionals and if-else like i already studied
+
+// Let's look into switch case:
+let mycolor = "yellow";
+switch(mycolor) {
+    case "red" :
+        console.log("It' red color")
+        break;
+    case "blue" :
+        console.log("It's Blue color");
+        break;
+    case "yellow" :
+        console.log("It's Yellow color");
+        break;
+    default :
+    console.log("Not Matched");
+}
+
+// Object oriented programming concepts in JavaScript
+
+/*
+// constructor function
+function Person(firstName, lastName, dob)
+{
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    this.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+// making prototype instead of making functions under construcor
+Person.prototype.getBirthYear = function() {
+    return this.dob.getFullYear(); // getFullYear() is an Inbuilt fun
+}
+*/
+// Instead of making prototype and constructors which we done above we can also make a class which will do same thing
+class Person {
+
+    constructor(firstName, lastName, dob)
+     {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+     }
+     getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+     getBirthYear() {
+        return this.dob.getFullYear();
+     }
+}
+
+// Instantiate object
+const person1 = new Person("Amarjeet", "Singh", "09-29-2001");
+const person2 = new Person("Amisha", "Singh", "11-21-2002");
+console.log(person1);
+console.log(person2.getFullName());
+console.log(person1.getBirthYear());

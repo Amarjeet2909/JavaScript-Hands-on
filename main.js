@@ -141,3 +141,5 @@ const person2 = new Person("Amisha", "Singh", "11-21-2002");
 console.log(person1);
 console.log(person2.getFullName());
 console.log(person1.getBirthYear());
+
+// DOM: Document Object Model

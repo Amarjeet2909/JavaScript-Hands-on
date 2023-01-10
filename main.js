@@ -143,3 +143,78 @@ console.log(person2.getFullName());
 console.log(person1.getBirthYear());
 
 // DOM: Document Object Model
+
+// selecting single element
+console.log(document.getElementById('my-form'));
+console.log(document.querySelector('h1'));
+
+// selecting multiple elements
+console.log(document.querySelectorAll('.item'));
+console.log(document.getElementsByClassName('item'));
+console.log(document.getElementsByTagName('li'));
+
+// querySelectorAll() returns a NodeList so we can perform different array operations on it
+
+// Example:-
+const items = document.querySelectorAll('.item');
+// appling for each loop and getting all the elements
+items.forEach((item) => console.log(item));
+
+const ul = document.querySelector('.items');
+
+// calling remove function will remove the whole "items" class
+ul.remove();
+
+// removing last child
+//ul.lastElementChild.remove(); 
+
+// changing the text content
+ul.firstElementChild.textContent = 'Hello';
+// instead of above we can also use
+ul.children[1].innerText = 'Hii';  
+// also this can be done
+ul.lastElementChild.innerHTML = '<h1>Kha Lo ME</h1>';
+
+// let's change some style
+const button = document.querySelector('.btn');
+button.style.background = 'red';
+
+// making things dynamic when user click "submit",button
+button.addEventListener('mouseover', (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    // changing some design
+    //document.querySelector('#my-form').style.background = 'yellow';
+    //document.querySelector('body').classList.add('bg-dark');
+});
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+    e.preventDefault();
+
+    if(nameInput.value === '' || emailInput.value === '') {
+        msg.classList.add('error');
+        msg.innerHTML = 'Please enter all fields';
+
+        // the message will disappear
+        setTimeout(() => msg.remove(), 3000);
+    } else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+
+        userList.appendChild(li);
+
+        // clear fields
+        nameInput.value = '';
+        emailInput.value = '';
+    }
+}
+
+// that's it for this file

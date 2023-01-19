@@ -69,6 +69,7 @@
     color: #fff;
   }
   
+  // the message shown in this style when errors 
   .error {
     background: orangered;
     color: #fff;
